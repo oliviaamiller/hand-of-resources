@@ -38,5 +38,21 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(sweet);
   });
 
+  it('updates a sweet by id', async () => {
+    const sweet = await Sweet.insert({ name: 'Zebra Stripe', type: 'Mint' });
+    const res = await request(app)
+      .patch(`/api/v1/sweets/${sweet.id}`)
+      .send({ type: 'Gum' });
+
+    const expected = {
+      id: sweet.id,
+      name: 'Zebra Stripe',
+      type: 'Gum'
+    };
+
+    expect(res.body).toEqual(expected);
+    expect(await Sweet.getById(sweet.id)).toEqual(expected);
+  });
+
   
 });
