@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Sweet = require('../lib/models/Sweet');
+// const Sweet = require('../lib/models/Sweet');
 
 describe('hand-of-resources routes', () => {
   beforeEach(() => {
