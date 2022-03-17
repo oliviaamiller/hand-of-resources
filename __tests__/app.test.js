@@ -81,6 +81,23 @@ describe('hand-of-resources routes', () => {
     expect(await Sweet.getById(sweet.id)).toEqual(expected);
   });
 
+  it('updates a cat by id', async () => {
+    const cat = await Cat.insert({ name: 'Tony', breed: 'Rag Doll', age: 7 });
+    const res = await request(app)
+      .patch(`/api/v1/cats/${cat.id}`)
+      .send({ age: 4 });
+
+    const expected = {
+      id: cat.id,
+      name: 'Tony',
+      breed: 'Rag Doll',
+      age: 4
+    };
+
+    expect(res.body).toEqual(expected);
+    expect(await Cat.getById(cat.id)).toEqual(expected);
+  });
+
   it('deletes a sweet', async () => {
     const sweet = await Sweet.insert({
       name: 'Zebra Stripe',
