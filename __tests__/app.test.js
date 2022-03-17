@@ -54,5 +54,15 @@ describe('hand-of-resources routes', () => {
     expect(await Sweet.getById(sweet.id)).toEqual(expected);
   });
 
+  it('deletes a sweet', async () => {
+    const sweet = await Sweet.insert({
+      name: 'Zebra Stripe',
+      type: 'Gum'
+    });
+    const res = await request(app).delete(`/api/v1/sweets/${sweet.id}`);
+
+    expect(res.body).toEqual(sweet);
+  });
+
   
 });
