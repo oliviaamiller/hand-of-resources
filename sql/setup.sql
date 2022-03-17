@@ -2,7 +2,7 @@
 -- The SQL in this file will be executed when you run `npm run setup-db`
 
 DROP TABLE IF EXISTS sweets;
--- DROP TABLE IF EXISTS cats;
+DROP TABLE IF EXISTS cats;
 -- DROP TABLE IF EXISTS books;
 -- DROP TABLE IF EXISTS planets;
 -- DROP TABLE IF EXISTS pasta;
@@ -13,12 +13,12 @@ CREATE TABLE sweets (
     type TEXT
 );
 
--- CREATE TABLE cats (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     breed TEXT NOT NULL,
---     age INT
--- );
+ CREATE TABLE cats (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     name TEXT NOT NULL,
+     breed TEXT NOT NULL,
+     age INT
+ );
 
 -- CREATE TABLE books (
 --     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -40,4 +40,3 @@ CREATE TABLE sweets (
 --     vegetarian BOOL(0)
 -- );
 
- 
