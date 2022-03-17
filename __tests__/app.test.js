@@ -59,7 +59,7 @@ describe('hand-of-resources routes', () => {
   });
 
   it('gets a cat by id', async () => {
-    const cat = await Cat.insert({ name: 'Falafel', type: 'Tabby' });
+    const cat = await Cat.insert({ name: 'Falafel', breed: 'Tabby' });
     const res = await request(app).get(`/api/v1/cats/${cat.id}`);
 
     expect(res.body).toEqual(cat);
