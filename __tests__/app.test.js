@@ -111,7 +111,7 @@ describe('hand-of-resources routes', () => {
   it('deletes a cat', async () => {
     const cat = await Cat.insert({
       name: 'Hercules',
-      type: 'Calico',
+      breed: 'Calico',
       age: 2
     });
     const res = await request(app).delete(`/api/v1/cats/${cat.id}`);
