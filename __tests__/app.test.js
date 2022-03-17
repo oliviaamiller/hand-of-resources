@@ -108,5 +108,16 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(sweet);
   });
 
+  it('deletes a cat', async () => {
+    const cat = await Cat.insert({
+      name: 'Hercules',
+      type: 'Calico',
+      age: 2
+    });
+    const res = await request(app).delete(`/api/v1/cats/${cat.id}`);
+
+    expect(res.body).toEqual(cat);
+  });
+
   
 });
