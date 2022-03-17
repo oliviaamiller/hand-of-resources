@@ -28,7 +28,7 @@ describe('hand-of-resources routes', () => {
     const expected = {
       name: 'Ernie',
       breed: 'Tabby',
-      age: '13'
+      age: 13
     };
 
     const res = await request(app).post('/api/v1/cats').send(expected);
