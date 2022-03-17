@@ -33,7 +33,7 @@ describe('hand-of-resources routes', () => {
 
   it('gets a sweet by id', async () => {
     const sweet = await Sweet.insert({ name: 'Starmix', type: 'Gummies' });
-    const res = await request(app).get(`/api/vi/sweets/${sweet.id}`);
+    const res = await request(app).get(`/api/v1/sweets/${sweet.id}`);
 
     expect(res.body).toEqual(sweet);
   });
