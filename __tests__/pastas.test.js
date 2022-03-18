@@ -39,4 +39,21 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(pasta);
   });
 
+  it('updates a pasta by id', async () => {
+    const pasta = await Pasta.insert({ name: 'Carbonara', sauce: 'Tomato', vegetarian: false });
+    const res = await request(app)
+      .patch(`/api/v1/pastas/${pasta.id}`)
+      .send({ sauce: 'None' });
+
+    const expected = {
+      id: pasta.id,
+      name: 'Carbonara',
+      sauce: 'None',
+      vegetarian: false
+    };
+
+    expect(res.body).toEqual(expected);
+    expect(await Pasta.getById(pasta.id)).toEqual(expected);
+  });
+
 });
