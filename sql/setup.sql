@@ -22,7 +22,7 @@ CREATE TABLE sweets (
  CREATE TABLE planets (
      id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
      name TEXT NOT NULL,
-     miles_from_sun INT,
+     distance_from_sun TEXT
  );
 
 -- CREATE TABLE pasta (
