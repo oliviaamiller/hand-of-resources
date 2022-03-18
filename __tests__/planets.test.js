@@ -38,4 +38,20 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(planet);
   });
 
+  it('updates a planet by id', async () => {
+    const planet = await Planet.insert({ name: 'Earthhh', distanceFromSun: '92.524 million miles' });
+    const res = await request(app)
+      .patch(`/api/v1/planets/${planet.id}`)
+      .send({ name: 'Earth' });
+
+    const expected = {
+      id: planet.id,
+      name: 'Earth',
+      distanceFromSun: '92.524 million miles'
+    };
+
+    expect(res.body).toEqual(expected);
+    expect(await Planet.getById(planet.id)).toEqual(expected);
+  });
+
 });
