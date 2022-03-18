@@ -32,3 +32,10 @@ CREATE TABLE sweets (
      vegetarian BOOLEAN DEFAULT 'false'
  );
 
+ CREATE TABLE songs (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     title TEXT NOT NULL,
+     artist TEXT NOT NULL,
+     album TEXT
+ );
+
