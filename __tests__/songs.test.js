@@ -39,4 +39,21 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(song);
   });
 
+  it('updates a song by id', async () => {
+    const song = await Song.insert({ title: 'Dance', artist: 'ESG' });
+    const res = await request(app)
+      .patch(`/api/v1/songs/${song.id}`)
+      .send({ album: 'Come Away With ESG' });
+
+    const expected = {
+      id: song.id,
+      title: 'Dance',
+      artist: 'ESG',
+      album: 'Come Away With ESG'
+    };
+
+    expect(res.body).toEqual(expected);
+    expect(await Song.getById(song.id)).toEqual(expected);
+  });
+
 });
