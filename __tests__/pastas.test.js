@@ -32,4 +32,11 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('gets a pasta by id', async () => {
+    const pasta = await Pasta.insert({ name: 'Pesto alla genovese', sauce: 'Pesto', vegetarian: true });
+    const res = await request(app).get(`/api/v1/pastas/${pasta.id}`);
+
+    expect(res.body).toEqual(pasta);
+  });
+
 });
