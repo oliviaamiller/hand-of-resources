@@ -54,4 +54,14 @@ describe('hand-of-resources routes', () => {
     expect(await Planet.getById(planet.id)).toEqual(expected);
   });
 
+  it('deletes a planet', async () => {
+    const planet = await Planet.insert({
+      name: 'Pluto',
+      distanceFromSun: '3.7 billion miles'
+    });
+    const res = await request(app).delete(`/api/v1/planets/${planet.id}`);
+
+    expect(res.body).toEqual(planet);
+  });
+
 });
