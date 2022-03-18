@@ -56,4 +56,15 @@ describe('hand-of-resources routes', () => {
     expect(await Pasta.getById(pasta.id)).toEqual(expected);
   });
 
+  it('deletes a pasta', async () => {
+    const pasta = await Pasta.insert({
+      name: 'Carbonara', 
+      sauce: 'None',
+      vegetarian: false
+    });
+    const res = await request(app).delete(`/api/v1/pastas/${pasta.id}`);
+
+    expect(res.body).toEqual(pasta);
+  });
+
 });
