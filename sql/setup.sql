@@ -3,8 +3,7 @@
 
 DROP TABLE IF EXISTS sweets;
 DROP TABLE IF EXISTS cats;
--- DROP TABLE IF EXISTS books;
--- DROP TABLE IF EXISTS planets;
+DROP TABLE IF EXISTS planets;
 -- DROP TABLE IF EXISTS pasta;
 
 CREATE TABLE sweets (
@@ -20,18 +19,11 @@ CREATE TABLE sweets (
      age INT
  );
 
--- CREATE TABLE books (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     title TEXT NOT NULL,
---     author TEXT NOT NULL,
---     published INT
--- );
-
--- CREATE TABLE planets (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     miles_from_sun INT,
--- );
+ CREATE TABLE planets (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     name TEXT NOT NULL,
+     miles_from_sun INT,
+ );
 
 -- CREATE TABLE pasta (
 --     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

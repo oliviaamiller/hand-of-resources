@@ -25,6 +25,13 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual({ id: expect.any(String), ...expected });
   });
 
+  it('gets a list of cats', async () => {
+    const expected = await Cat.getAll();
+    const res = await request(app).get('/api/v1/cats');
+
+    expect(res.body).toEqual(expected);
+  });
+
   it('gets a cat by id', async () => {
     const cat = await Cat.insert({ name: 'Falafel', breed: 'Tabby' });
     const res = await request(app).get(`/api/v1/cats/${cat.id}`);
@@ -59,6 +66,5 @@ describe('hand-of-resources routes', () => {
 
     expect(res.body).toEqual(cat);
   });
-
 
 });
