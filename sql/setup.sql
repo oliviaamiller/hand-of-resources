@@ -4,7 +4,7 @@
 DROP TABLE IF EXISTS sweets;
 DROP TABLE IF EXISTS cats;
 DROP TABLE IF EXISTS planets;
--- DROP TABLE IF EXISTS pasta;
+DROP TABLE IF EXISTS pasta;
 
 CREATE TABLE sweets (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -25,10 +25,10 @@ CREATE TABLE sweets (
      distance_from_sun TEXT
  );
 
--- CREATE TABLE pasta (
---     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---     name TEXT NOT NULL,
---     sauce TEXT NOT NULL,
---     vegetarian BOOL(0)
--- );
+ CREATE TABLE pasta (
+     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+     name TEXT NOT NULL,
+     sauce TEXT NOT NULL,
+     vegetarian BOOLEAN DEFAULT 'false'
+ );
 
