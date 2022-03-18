@@ -19,9 +19,9 @@ describe('hand-of-resources routes', () => {
       album: 'Abbey Road'
     };
 
-    const res = await (await request(app).post('/api/v1/songs')).send(expected);
+    const res = await request(app).post('/api/v1/songs').send(expected);
 
     expect(res.body).toEqual({ id: expect.any(String), ...expected });
   });
-  
+
 });
