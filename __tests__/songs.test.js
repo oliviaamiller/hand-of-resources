@@ -32,4 +32,11 @@ describe('hand-of-resources routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  it('gets a song by id', async () => {
+    const song = await Song.insert({ title: 'What Are You Doing the Rest of Your Life?', artist: 'Bill Evans', album: 'From Left to Right' });
+    const res = await request(app).get(`/api/v1/songs/${song.id}`);
+
+    expect(res.body).toEqual(song);
+  });
+
 });
