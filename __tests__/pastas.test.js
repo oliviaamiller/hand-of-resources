@@ -16,7 +16,7 @@ describe('hand-of-resources routes', () => {
     const expected = {
       name: 'Bolognese',
       sauce: 'Tomato',
-      vegetarian: 'false'
+      vegetarian: false
     };
 
     const res = await request(app).post('/api/v1/pastas').send(expected);
