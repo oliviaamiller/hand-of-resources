@@ -56,4 +56,14 @@ describe('hand-of-resources routes', () => {
     expect(await Song.getById(song.id)).toEqual(expected);
   });
 
+  it('deletes a song', async () => {
+    const song = await Song.insert({ 
+      title: 'I Feel For You', 
+      artist: 'Prince' 
+    });
+    const res = await request(app).delete(`/api/v1/songs/${song.id}`);
+
+    expect(res.body).toEqual(song);
+  });
+
 });
